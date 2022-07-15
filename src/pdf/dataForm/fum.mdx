@@ -1,0 +1,303 @@
+---
+id: '002_fum'
+title: 'FUM'
+content: 'Especificaciones del vehiculo'
+relations: '["001_traspaso_auto"]'
+formStructure: '[
+  {
+    "title": "Organismo de transito",
+    "button": "Siguiente",
+    "completed": false,
+    "nodes":[
+      {
+        "label":{
+          "htmlFor": "name",
+          "title": "Nombre(s)"
+        },
+        "input":{
+          "id": "name",
+          "name": "name",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "city",
+          "title": "Ciudad"
+        },
+        "input":{
+          "id": "city",
+          "name": "city",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "code",
+          "title": "Codigo"
+        },
+        "input":{
+          "id": "code",
+          "name": "code",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "date",
+          "title": "Fecha de tramite"
+        },
+        "input":{
+          "id": "date",
+          "name": "date",
+          "type": "text",
+          "required": true
+        }
+      }
+    ]
+  },
+  {
+    "title": "Placa",
+    "button": "Siguiente",
+    "completed": false,
+    "nodes":[
+      {
+        "label":{
+          "htmlFor": "letters",
+          "title": "Letras"
+        },
+        "input":{
+          "id": "letters",
+          "name": "letters",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "numbers",
+          "title": "Numeros"
+        },
+        "input":{
+          "id": "numbers",
+          "name": "numbers",
+          "type": "text",
+          "required": true
+        }
+      }
+    ]
+  },
+  {
+    "title": "Tramite solicitado",
+    "button": "Siguiente",
+    "completed": false,
+    "nodes":[
+      {
+        "label":{
+          "htmlFor": "Procedure",
+          "title": "Tipo de tramite"
+        },
+        "select":{
+          "id": "procedure",
+          "name": "procedure",
+          "options": [
+            "MATRICULA / REGISTRO",
+            "TRASPASO",
+            "TRANSLADO MATRICULA / REGISTRO",
+            "RADICADO MATRICULA / REGISTRO",
+            "CAMBIO DE COLOR",
+            "CAMBIO DE SERVICIO",
+            "REGRABAR MOTOR",
+            "REGRABAR CHASIS",
+            "TTRANSFORMACION",
+            "DUPLICADO LICENCIA TRANSITO",
+            "INSCRIPC. PRENDA",
+            "LEVANTA. PRENDA",
+            "CANCELACION MATRICULA / REGISTRO",
+            "CAMBIO DE PLACAS",
+            "DUPLICADO DE PLACAS",
+            "REMATRICULA",
+            "CAMBIO DE CARROCERIA",
+            "OTROS"
+          ],
+          "values":[
+            "MATRICULA / REGISTRO",
+            "TRASPASO",
+            "TRANSLADO MATRICULA / REGISTRO",
+            "RADICADO MATRICULA / REGISTRO",
+            "CAMBIO DE COLOR",
+            "CAMBIO DE SERVICIO",
+            "REGRABAR MOTOR",
+            "REGRABAR CHASIS",
+            "TTRANSFORMACION",
+            "DUPLICADO LICENCIA TRANSITO",
+            "INSCRIPC. PRENDA",
+            "LEVANTA. PRENDA",
+            "CANCELACION MATRICULA / REGISTRO",
+            "CAMBIO DE PLACAS",
+            "DUPLICADO DE PLACAS",
+            "REMATRICULA",
+            "CAMBIO DE CARROCERIA",
+            "OTROS"
+          ],
+          "type": "text",
+          "required": true
+        }
+      }
+    ]
+  },
+  {
+    "title": "Especificaciones del auto",
+    "button": "Siguiente",
+    "completed": false,
+    "nodes":[
+      {
+        "label":{
+          "htmlFor": "marca",
+          "title": "Nombre"
+        },
+        "input":{
+          "id": "marca",
+          "name": "marca",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "line",
+          "title": "Linea"
+        },
+        "input":{
+          "id": "line",
+          "name": "line",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "fuel",
+          "title": "Conbustible"
+        },
+        "select":{
+          "id": "fuel",
+          "name": "fuel",
+          "options": [
+            "Gasolina",
+            "Diesel",
+            "Gas",
+            "Mixto",
+            "Electronico",
+            "Hidrogen",
+            "Etanol",
+            "Biodiesel"
+          ],
+          "values": [
+            "Gasolina",
+            "Diesel",
+            "Gas",
+            "Mixto",
+            "Electronico",
+            "Hidrogen",
+            "Etanol",
+            "Biodiesel"
+          ],
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "color",
+          "title": "Color"
+        },
+        "input":{
+          "id": "color",
+          "name": "color",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "model",
+          "title": "Modelo"
+        },
+        "input":{
+          "id": "model",
+          "name": "model",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "displacement",
+          "title": "Cilindrada"
+        },
+        "input":{
+          "id": "displacement",
+          "name": "displacement",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "capacity",
+          "title": "Capacidad"
+        },
+        "input":{
+          "id": "capacity",
+          "name": "capacity",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "armour",
+          "title": "blindaje"
+        },
+        "radio":{
+          "id": "armour",
+          "name": "armour",
+          "mames": ["si","no"],
+          "values": ["si","no"],
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "removeBlind",
+          "title": "Desmonte Blind"
+        },
+        "radio":{
+          "id": "removeBlind.",
+          "name": "removeBlind.",
+          "mames": ["si","no"],
+          "values": ["si","no"],
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "hp",
+          "title": "Potencia HP"
+        },
+        "input":{
+          "id": "hp",
+          "name": "hp",
+          "type": "text",
+          "required": true
+        }
+      }
+    ]
+  }
+]'
+---

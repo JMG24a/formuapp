@@ -1,0 +1,361 @@
+---
+id: '001_traspaso_auto'
+title: 'Traspaso de vehiculo'
+content: "Compra y venta de vehiculos"
+relations: '["002_fum"]'
+formStructure: '[
+  {
+    "title": "Datos del comprador",
+    "button": "Siguiente",
+    "completed": false,
+    "nodes": [
+      {
+        "label":{
+          "htmlFor": "name",
+          "title": "Nombre(s)"
+        },
+        "input":{
+          "id": "name",
+          "type": "text",
+          "name": "name",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "lastName",
+          "title": "Apellido(s)"
+        },
+        "input":{
+          "id": "lastName",
+          "name": "lastName",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "cc",
+          "title": "Documento de identidad"
+        },
+        "input":{
+          "id": "cc",
+          "name": "cc",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "phone",
+          "title": "Telefono"
+        },
+        "input":{
+          "id": "phone",
+          "name": "phone",
+          "type": "number",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "address",
+          "title": "Direccion"
+        },
+        "input":{
+          "id": "address",
+          "name": "address",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "city",
+          "title": "Ciudad"
+        },
+        "input":{
+          "id": "city",
+          "name": "city",
+          "type": "text",
+          "required": true
+        }
+      }
+    ]
+  },
+  {
+    "title": "Datos del vendedor",
+    "button": "Siguiente",
+    "completed": false,
+    "nodes": [
+      {
+        "label":{
+          "htmlFor": "name",
+          "title": "Nombre(s)"
+        },
+        "input":{
+          "id": "name",
+          "type": "text",
+          "name": "name",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "lastName",
+          "title": "Apellido(s)"
+        },
+        "input":{
+          "id": "lastName",
+          "name": "lastName",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "cc",
+          "title": "Documento de identidad"
+        },
+        "input":{
+          "id": "cc",
+          "name": "cc",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "phones",
+          "title": "Telefono"
+        },
+        "input":{
+          "id": "phones",
+          "name": "phones",
+          "type": "number",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "address",
+          "title": "Direccion"
+        },
+        "input":{
+          "id": "address",
+          "name": "address",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "city",
+          "title": "Ciudad"
+        },
+        "input":{
+          "id": "city",
+          "name": "city",
+          "type": "text",
+          "required": true
+        }
+      }
+    ]
+  },
+  {
+    "title": "Datos del contrato",
+    "button": "Siguiente",
+    "completed": false,
+    "nodes": [
+      {
+        "label":{
+          "htmlFor": "priceCar",
+          "title": "precio del auto"
+        },
+        "input":{
+          "id": "priceCar",
+          "name": "priceCar",
+          "type": "number",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "priceCarText",
+          "title": "precio del auto en letras"
+        },
+        "input":{
+          "id": "priceCarText",
+          "name": "priceCarText",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "typeCash",
+          "title": "metodo de pago"
+        },
+        "input":{
+          "id": "typeCash",
+          "name": "typeCash",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "phone",
+          "title": "Telefono"
+        },
+        "input":{
+          "id": "phone",
+          "name": "phone",
+          "type": "number",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "travelExpenses",
+          "title": "Gastos de traspaso a cargo de"
+        },
+        "select":{
+          "id": "travelExpenses",
+          "name": "travelExpenses",
+          "options": ["comprador","vendedor"],
+          "names": ["comprador","vendedor"],
+          "values": ["comprador","vendedor"]
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "city",
+          "title": "Ciudad de entrega"
+        },
+        "input":{
+          "id": "city",
+          "name": "city",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "date",
+          "title": "Fecha de entrega"
+        },
+        "input":{
+          "id": "date",
+          "name": "date",
+          "type": "date",
+          "required": true
+        }
+      }
+    ]
+  },
+  {
+    "title": "Datos del vehiculo",
+    "button": "Siguiente",
+    "completed": false,
+    "nodes": [
+      {
+        "label":{
+          "htmlFor": "licensePlate",
+          "title": "Numbero de placa"
+        },
+        "input":{
+          "id": "licensePlate",
+          "name": "licensePlate",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "mark",
+          "title": "Marca"
+        },
+        "input":{
+          "id": "mark",
+          "name": "mark",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "line",
+          "title": "Linea"
+        },
+        "input":{
+          "id": "line",
+          "name": "line",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "color",
+          "title": "Color"
+        },
+        "input":{
+          "id": "color",
+          "name": "color",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "model",
+          "title": "Modelo"
+        },
+        "input":{
+          "id": "model",
+          "name": "model",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "serialN",
+          "title": "Numero de serie"
+        },
+        "input":{
+          "id": "serialN",
+          "name": "serialN",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "chassisN",
+          "title": "Numero de chasis"
+        },
+        "input":{
+          "id": "chassisN",
+          "name": "chassisN",
+          "type": "text",
+          "required": true
+        }
+      },
+      {
+        "label":{
+          "htmlFor": "engineNumber",
+          "title": "Numero de motor"
+        },
+        "input":{
+          "id": "engineNumber",
+          "name": "engineNumber",
+          "type": "text",
+          "required": true
+        }
+      }
+    ]
+  }
+]'
+---
