@@ -48,7 +48,7 @@ function Download({setIsModal, slugs}){
         <div style={{width: "30%"}}>
           <Btn>descargar formato fun</Btn>
 
-          <Preview onClick={testHandle}>
+          <Preview onClick={handleClick}>
             <View>vista previa</View>
           </Preview>
         </div>
