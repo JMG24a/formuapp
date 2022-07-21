@@ -10,22 +10,57 @@ export const Container = styled.div`
   bottom: 0px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 200px;
+  width: 18%;
   min-height: 90px;
-  padding: 10px;
+  padding: 0px;
   background-color: #0c1434;
-`
+  margin: 0px;
+`;
 
-export const Title = styled.p`
-  margin: 5px;
-  text-align: left;
-  font-size: 1.4rem;
-  color: ${paletteColor.textWhite};
-  /* hover */
-  :hover {
-    color: gray;
-    cursor: pointer;
-  }
-`
+export const ListStyleContainer = styled.ul`
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const ListStyle = styled.li`
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  font-size: 2em;
+  align-items: center;
+  display: flex;
+  border-bottom: 1px solid white;
+`;
+
+export const CloseButton = styled.p`
+  color: red;
+  font-size: 2em;
+  text-align: center;
+`;
+
+export const FollowUs = styled.div`
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  margin-top: 20%;
+`;
+
+export const BottomNav = styled.p`
+  position: absolute;
+  bottom: 30px;
+  left: 15%;
+  text-align: center;
+  justify-content: center;
+`;
+export const PosicionFlecha = styled.div`
+  height: 100%;
+  background-color: #001e38;
+  width: 35px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;

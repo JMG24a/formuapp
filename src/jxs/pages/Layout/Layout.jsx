@@ -5,107 +5,102 @@ import { AiOutlineReload } from "react-icons/ai";
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as alertActions from "../../../redux/actions/alert-action"
-import * as stateInfoActions from "../../../redux/actions/state-info-action-action"
+import * as alertActions from "../../../redux/actions/alert-action";
+import * as stateInfoActions from "../../../redux/actions/state-info-action-action";
 //containers
-import { Nav } from '../../containers/Nav/Nav.jsx';
-import { Alert } from '../../containers/Alert/Alert';
+import { Nav } from "../../containers/Nav/Nav.jsx";
+import { Alert } from "../../containers/Alert/Alert.jsx";
 //styles
-import { Container } from './layout'
-import logo from '../../../../public/image/logo.svg'
+import { Container } from "./layout";
+import logo from "../../../../public/image/logo.svg";
 import { paletteColor } from "../../../styles/globalStyles.js";
 import Image from "next/image";
 
-function Layout({children}){
-  const router = useRouter()
-  const [isHome, setHome] = useState(true)
+function Layout({ children }) {
+  const router = useRouter();
+  const [isHome, setHome] = useState(true);
   const [isForm, setForm] = useState({
     isVisible: false,
-    text: 'Reiniciar',
-    color: `${paletteColor.secondaryColor}`
-  })
+    text: "Reiniciar",
+    color: `${paletteColor.secondaryColor}`,
+  });
   //redux
-  const dispatch = useDispatch()
-  const { reset_alert } = bindActionCreators(alertActions, dispatch)
-  const { finish_contract } = bindActionCreators(stateInfoActions, dispatch)
-  const { auth, alertState, forms} = useSelector(state => state)
+  const dispatch = useDispatch();
+  const { reset_alert } = bindActionCreators(alertActions, dispatch);
+  const { finish_contract } = bindActionCreators(stateInfoActions, dispatch);
+  const { auth, alertState, forms } = useSelector((state) => state);
 
   const handleReset = () => {
-    handleClick()
-    finish_contract()
-  }
+    handleClick();
+    finish_contract();
+  };
 
   const handleClick = () => {
-    router.push('/')
-  }
+    router.push("/");
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     //button home
-    router.pathname !== '/' ? setHome(true) : setHome(false)
+    router.pathname !== "/" ? setHome(true) : setHome(false);
     //button reset
-    router.pathname.startsWith('/form') |
-      router.pathname.startsWith('/result') ?
-        setForm({...isForm, isVisible: true}) : setForm({...isForm, isVisible: false})
+    router.pathname.startsWith("/form") | router.pathname.startsWith("/result")
+      ? setForm({ ...isForm, isVisible: true })
+      : setForm({ ...isForm, isVisible: false });
     //button reset color
-    if(router.pathname.startsWith('/result')){
-      setForm({...isForm, color: `${paletteColor.mainColor}`})
+    if (router.pathname.startsWith("/result")) {
+      setForm({ ...isForm, color: `${paletteColor.mainColor}` });
     }
-  },[router.pathname])
+  }, [router.pathname]);
 
-  return(
+  return (
     <Container>
-      <Nav auth={auth.name}/>
-      <div>
-        {children}
-      </div>
-      {!!isHome &&
+      <Nav auth={auth.name} />
+      <div>{children}</div>
+      {!!isHome && (
         <FaHome
-          size={'40px'}
-          color={'white'}
+          size={"40px"}
+          color={"white"}
           style={{
-            position: 'fixed',
-            bottom: '20px',
-            cursor: 'pointer'
+            position: "fixed",
+            bottom: "20px",
+            cursor: "pointer",
           }}
-          onClick={()=>handleClick()}
+          onClick={() => handleClick()}
         />
-      }
-      {!!isForm.isVisible && !!auth.name &&
+      )}
+      {!!isForm.isVisible && !!auth.name && (
         <div
           style={{
-            position: 'fixed',
-            display: 'flex',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            bottom: '20px',
-            left: '120px',
-            width: '100px',
-            height: '30px',
-            padding: '5px',
-            borderRadius: '5px',
+            position: "fixed",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            bottom: "20px",
+            left: "120px",
+            width: "100px",
+            height: "30px",
+            padding: "5px",
+            borderRadius: "5px",
             background: `${isForm.color}`,
-            textAlign: 'center',
-            fontSize: '1.6rem',
+            textAlign: "center",
+            fontSize: "1.6rem",
             color: `${paletteColor.textWhite}`,
-            cursor: 'pointer',
+            cursor: "pointer",
           }}
           onClick={handleReset}
         >
-          {router.pathname.startsWith('/result') ?
-            <Image src={logo} alt="Logo" width={'20px'} />
-            :
-            <AiOutlineReload style={{marginRight: '5px'}}/>
-          }
-          {router.pathname.startsWith('/result') ?
-            'Finalizar' : 'Reiniciar'
-          }
+          {router.pathname.startsWith("/result") ? (
+            <Image src={logo} alt="Logo" width={"20px"} />
+          ) : (
+            <AiOutlineReload style={{ marginRight: "5px" }} />
+          )}
+          {router.pathname.startsWith("/result") ? "Finalizar" : "Reiniciar"}
         </div>
-      }
+      )}
 
-
-      <Alert state={alertState} action={reset_alert}/>
+      <Alert state={alertState} action={reset_alert} />
     </Container>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

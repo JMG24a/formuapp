@@ -1,20 +1,20 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const paletteColor = {
   //colors
-  mainColor: '#2F97C1',
-  darkMainColor: '#001E38',
-  secondaryColor: '#E54C30',
-  darkSecondaryColor: '#A5A5A5',
+  mainColor: "#2F97C1",
+  darkMainColor: "#002A4E",
+  secondaryColor: "#E54C30",
+  darkSecondaryColor: "#A5A5A5",
   //texts
-  textMain: '#DCDCDC',
-  textSecondary: '#303030',
-  textWhite: '#FFFFFF',
-  textBlack: '#110E0E',
+  textMain: "#DCDCDC",
+  textSecondary: "#303030",
+  textWhite: "#FFFFFF",
+  textBlack: "#110E0E",
   //buttons
-  successColor: '#5CC12F',
-  failedColor: '',
-}
+  successColor: "#5CC12F",
+  failedColor: "",
+};
 
 // export const lightTheme = {
 //   body: '#fffff',
@@ -28,7 +28,6 @@ export const paletteColor = {
 //   ternary: '#000000',
 //   codeColor: '#D121C5',
 // }
-
 
 export const GlobalStyles = createGlobalStyle`
   html {
@@ -61,4 +60,4 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     padding-bottom: 10px;
   }
-`
+`;
