@@ -6,7 +6,17 @@ import { ProgressBar } from "../../containers/ProgressBar/ProgressBar.jsx";
 //style
 import { Container, Section, Title } from './formuApp.js'
 
-function FormuAppUi({form, handleClick, formHandler, forms, index}){
+function FormuAppUi({
+  form,
+  handleClick,
+  formHandler,
+  handleFocus,
+  handleBack,
+  forms,
+  index,
+  flatEdit,
+  setFlatEdit
+}){
   return (
     <MainPage>
       <Container>
@@ -19,13 +29,16 @@ function FormuAppUi({form, handleClick, formHandler, forms, index}){
           }}>
           <Title>{forms.title}</Title>
         </div>
-        <ProgressBar nodes={forms.formNodes}/>
+        <ProgressBar nodes={forms.formNodes} handleBack={handleBack} />
         <Section>
           <Form
             form={form}
             formulationOptions={forms.formNodes[index]}
+            flatEdit={flatEdit}
+            setFlatEdit={setFlatEdit}
             handleClick={handleClick}
             formHandler={formHandler}
+            handleFocus={handleFocus}
           />
         </Section>
       </Container>

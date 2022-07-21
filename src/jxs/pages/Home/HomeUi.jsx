@@ -8,14 +8,14 @@ import { Search } from "../../containers/Search/Search.jsx"
 //style
 import { H2, Paragraph, Section, Btn, Grid } from './home.js'
 
-function HomeUi({handleClick, slugs, selectionContract}){
+function HomeUi({handleClick, slugs, selectionContract, preSelectContract}){
   return (
     <MainPage>
       <H2>{`Realiza tus trámites de una manera`}</H2>
       <H2>{'fácil, rápida y segura'}</H2>
       <Paragraph>{'Selecciona un formulario para empezar'}</Paragraph>
       <Section>
-        <Search slugs={slugs} selectionContract={selectionContract}/>
+        <Search slugs={slugs} preSelectContract={preSelectContract}/>
         <Btn onClick={handleClick}>Continuar <BsHandIndexThumbFill/></Btn>
       </Section>
 

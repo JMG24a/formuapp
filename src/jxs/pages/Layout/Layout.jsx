@@ -29,7 +29,7 @@ function Layout({children}){
   const { reset_alert } = bindActionCreators(alertActions, dispatch)
   const { finish_contract } = bindActionCreators(stateInfoActions, dispatch)
   const { auth, alertState, forms} = useSelector(state => state)
-  console.log(forms)
+
   const handleReset = () => {
     handleClick()
     finish_contract()

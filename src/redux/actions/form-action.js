@@ -4,10 +4,11 @@ import { stateInfoTypes } from '../types/state-info-types'
 export const get_forms = (form) => {
   return (dispatch) =>{
     const formNode = JSON.parse(form.formStructure)
+    const relations = JSON.parse(form.relations)
 
     dispatch({
       type: formsTypes.UPDATE,
-      payload: {id: form.id, title: form.title}
+      payload: {id: form.id, title: form.title, relations}
     })
     dispatch({
       type: stateInfoTypes.UPDATE,
@@ -24,10 +25,18 @@ export const progress_forms = (index, data) => {
   return async (dispatch, getState) =>{
     const { formNodes } = getState().forms
     const { formInfo } = getState().stateInfo
+    let updateInfo = []
 
     //update info
-    let updateInfo = [...formInfo, data]
-    updateInfo[index].title = formNodes[index].title;
+    if(data.title){
+      const titles = formInfo.map(i => i.title)
+      const indexof = titles.indexOf(data.title)
+      formInfo[indexof] = {...data}
+      updateInfo = [...formInfo]
+    }else {
+      updateInfo = [...formInfo, data]
+      updateInfo[index].title = formNodes[index].title;
+    }
 
     //update form
     let updateForm = [...formNodes]
@@ -44,37 +53,3 @@ export const progress_forms = (index, data) => {
     })
   }
 }
-
-// formNodes: [
-//   {
-//     id: '000',
-//     title: 'Datos del comprador',
-//     button: 'Ingresar',
-//     footer: '¿No tienes una cuenta registrate?',
-//     completed: false,
-//     nodes: [
-//       {
-//         label: [
-//           {
-//             htmlFor: 'email',
-//             title: 'Email: '
-//           },
-//           {
-//             htmlFor: 'password',
-//             title: 'Contraseña: '
-//           }
-//         ],
-//         input: [
-//           {
-//             type: 'text',
-//             id: 'email',
-//           },
-//           {
-//             type: 'password',
-//             id: 'password',
-//             footer: '¿Olvidaste tu contraseña?'
-//           }
-//         ],
-//       }
-//     ],
-//   },

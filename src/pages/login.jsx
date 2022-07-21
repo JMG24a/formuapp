@@ -9,7 +9,7 @@ import { AuthUserUi } from "../jxs/pages/AuthUser/AuthUserUi";
 
 function Login(){
   const router = useRouter()
-  const [form, setForm] = useState()
+  const [form, setForm] = useState({})
   //redux
   const dispatch = useDispatch()
   const { auth_login } = bindActionCreators(AuthActions, dispatch)
@@ -24,8 +24,6 @@ function Login(){
       if(isTrue){
         router.push("/")
       }
-    }else{
-
     }
     e.target.reset()
   }
@@ -34,10 +32,14 @@ function Login(){
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleFocus = (e) => {
+  };
+
   return (
     <AuthUserUi
       router={router}
       form={form}
+      handleFocus={handleFocus}
       handleSubmit={handleSubmit}
       formHandler={formHandler}
     />

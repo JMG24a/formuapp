@@ -2,15 +2,20 @@ import styled from "styled-components";
 import { paletteColor } from "../../../styles/globalStyles";
 
 export const Container = styled.div`
-  position: absolute;
-  top: 70px;
-  right: 0px;
+  z-index: 1;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 69%;
+  bottom: 0px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   min-width: 200px;
   min-height: 90px;
   padding: 10px;
-  background-color: ${paletteColor.textSecondary};
+  background-color: #0c1434;
 `
 
 export const Title = styled.p`
@@ -19,5 +24,8 @@ export const Title = styled.p`
   font-size: 1.4rem;
   color: ${paletteColor.textWhite};
   /* hover */
-  cursor: pointer;
+  :hover {
+    color: gray;
+    cursor: pointer;
+  }
 `

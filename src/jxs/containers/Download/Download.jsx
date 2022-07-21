@@ -1,64 +1,44 @@
 import React from 'react';
-import { useRouter } from 'next/router';
-//test redux
-import { useDispatch, useSelector } from 'react-redux';
-import { bindActionCreators } from "redux";
-import * as FormsActions from '../../../redux/actions/form-action';
-import * as AlertsActions from '../../../redux/actions/alert-action';
 //style
 import { Container, Section, Suggestion, Title, Btn, Preview, View, Ul, Li,  } from './download.js'
 
-function Download({setIsModal, slugs}){
-  const router = useRouter()
-  //redux
-  const dispatch = useDispatch();
-  const { get_forms  } = bindActionCreators(FormsActions, dispatch);
-  const { send_alert } = bindActionCreators(AlertsActions, dispatch);
-  const { auth } = useSelector((state) => state)
-
-  const handleClick = () => {
-    setIsModal(true)
-  }
-
-  const testHandle = () => {
-    const form = slugs.filter(s => s.id === '002_fum')
-
-    get_forms(form[0])
-    if(!!auth.name){
-      router.push('/form')
-    }else{
-      send_alert({
-        title: 'Inicia session',
-        body: 'necesitas estar registrado para esta accion'
-      })
-    }
-  }
-
+function Download({forms, slugs, handleClick}){
   return (
     <Container>
-      <Title>Descarga estos 3 documentos</Title>
+      <Title>
+        {forms?.relations?.length > 1 ?
+          `Descarga estos ${forms.relations.length} documentos`
+          :
+          'Descarga este documento'
+        }
+      </Title>
+
       <Section>
-        <div style={{width: "30%"}}>
-          <Btn>descargar contrato de compra venta</Btn>
 
-          <Preview onClick={handleClick}>
-            <View>vista previa</View>
-          </Preview>
-        </div>
-        <div style={{width: "30%"}}>
-          <Btn>descargar formato fun</Btn>
+        {forms?.relations?.length <= 0 &&
+          <div style={{width: "30%"}}>
+            <Btn>descargar {forms.title}</Btn>
 
-          <Preview onClick={handleClick}>
-            <View>vista previa</View>
-          </Preview>
-        </div>
-        <div style={{width: "30%"}}>
-          <Btn>descargar mandato</Btn>
+            <Preview onClick={()=>handleClick(forms.id)}>
+              <View>vista previa</View>
+            </Preview>
+          </div>
+        }
 
-          <Preview onClick={handleClick}>
-            <View>vista previa</View>
-          </Preview>
-        </div>
+        {forms?.relations?.map((relation, index) => {
+          const infoSlug = slugs.filter(slug => slug.id === relation);
+
+          return(
+            <div key={index} style={{width: "30%"}}>
+              <Btn>descargar {infoSlug[0].title}</Btn>
+
+              <Preview onClick={()=>handleClick(relation)}>
+                <View>vista previa</View>
+              </Preview>
+            </div>
+          )
+        })}
+
       </Section>
       <Suggestion>
         <Title>También te puede intera</Title>

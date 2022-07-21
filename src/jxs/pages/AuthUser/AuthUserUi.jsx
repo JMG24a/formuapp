@@ -1,126 +1,49 @@
 import React from "react";
 //container
-import { MainPage } from "../../containers/MainPage/MainPage";
-import { Form } from "../../containers/Form/Form";
+import { MainPageLogin } from "../../containers/MainPageLogin/MainPageLogin.jsx";
+import { FormLogin } from '../../containers/CustomFormsApp/FormLogin/FormLogin.jsx';
+import { FormRegister } from '../../containers/CustomFormsApp/FormRegister/FormRegister.jsx';
+//components
+import { Message } from '../../components/Message/Message.jsx';
 
-function AuthUserUi({router, form, handleSubmit, formHandler}){
-  let login = {
-    id: 'LOGIN',
-    title: 'Iniciar Sesión',
-    button: 'Ingresar',
-    footer: '¿No tienes una cuenta registrate?',
-    nodes: [
-      {
-        label:{
-            id: 'login',
-            htmlFor: 'email',
-            title: 'Email: '
-        },
-        input:{
-          id: 'login',
-          type: 'email',
-          name: 'email',
-          required: true
-        },
-      },
-      {
-        label:{
-          id: 'password',
-          htmlFor: 'password',
-          title: 'Contraseña: '
-        },
-        input:{
-          type: 'password',
-          id: 'password',
-          name: 'password',
-          required: true,
-          footer: '¿Olvidaste tu contraseña?'
-        }
-      }
-    ],
-  }
-
-
-  let register = {
-    id: 'REGISTER',
-    title: 'Registro de Usuario',
-    button: 'Continuar',
-    footer: '¿Ya tienes una cuenta? Inicia Sesíon',
-    nodes: [
-      {
-        label:{
-          id: 'name',
-          htmlFor: 'name',
-          title: 'Nombre Completo: '
-        },
-        input:{
-          id: 'name',
-          name: 'name',
-          type: 'text',
-        },
-      },
-      {
-        label: {
-          id: 'lastName',
-          htmlFor: 'lastName',
-          title: 'Apellidos: '
-        },
-        input:{
-          id: 'lastName',
-          name: 'lastName',
-          type: 'text',
-          required: true
-        }
-      },
-      {
-        label:{
-          id: 'email',
-          htmlFor: 'email',
-          title: 'Email: '
-        },
-        input:{
-          id: 'email',
-          name: 'email',
-          type: 'email',
-          required: true
-        }
-      },
-      {
-        label:{
-          id: 'password',
-          htmlFor: 'password',
-          title: 'Contraseña: '
-        },
-        input:{
-          id: 'password',
-          name: 'password',
-          type: 'password',
-          required: true
-        }
-      }
-    ],
-  }
-
+function AuthUserUi({router, form, handleSubmit, formHandler, handleFocus, handleContinue, isModal, setModal}){
   return(
-    <MainPage>
+    <MainPageLogin>
         {!!router.pathname.startsWith('/login') &&
-          <Form
-            form={form}
-            formulationOptions={login}
-            handleClick={handleSubmit}
-            formHandler={formHandler}
-          />
+          <>
+            <FormLogin
+              form={form}
+              handleSubmit={handleSubmit}
+              handleFocus={handleFocus}
+              formHandler={formHandler}
+            />
+            <Message>
+              <div style={{position: 'relative'}}>
+                <p style={{fontSize: '3.8rem', fontWeight: '600', color: 'white'}}>{'"FormuApp es la mejor manera de hacer mis documentos"'}</p>
+                <p style={{position: 'absolute', right: '0px', fontSize: '2.2rem', fontWeight: '400', color: '#d3cccc'}}>Alejandro Cabrejo - CEO Founder</p>
+              </div>
+            </Message>
+          </>
         }
 
         {!router.pathname.startsWith('/login') &&
-          <Form
-            form={form}
-            formulationOptions={register}
-            handleClick={handleSubmit}
-            formHandler={formHandler}
-          />
+          <>
+            <FormRegister
+              isModal={isModal}
+              setModal={setModal}
+              handleSubmit={handleSubmit}
+              handleContinue={handleContinue}
+              formHandler={formHandler}
+            />
+            <Message>
+              <div style={{position: 'relative'}}>
+                <p style={{fontSize: '3.8rem', fontWeight: '600', color: 'white'}}>{'"FormuApp es la mejor manera de hacer mis documentos"'}</p>
+                <p style={{position: 'absolute', right: '0px', fontSize: '2.2rem', fontWeight: '400', color: '#d3cccc'}}>Alejandro Cabrejo - CEO Founder</p>
+              </div>
+            </Message>
+          </>
         }
-    </MainPage>
+    </MainPageLogin>
   )
 }
 

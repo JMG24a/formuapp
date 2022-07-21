@@ -38,3 +38,16 @@ export const Title = styled.p`
   font-weight: 400;
   color: white;
 `
+
+export const Edit = styled.p`
+  position: absolute;
+  top: 40px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: ${paletteColor.secondaryColor};
+  /*hover*/
+  :hover{
+    cursor: pointer;
+    color: ${paletteColor.textWhite};
+  }
+`

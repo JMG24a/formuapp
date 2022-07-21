@@ -9,7 +9,9 @@ import { AuthUserUi } from "../jxs/pages/AuthUser/AuthUserUi";
 
 function Login(){
   const router = useRouter()
-  const [form, setForm] = useState()
+  const [form, setForm] = useState({})
+  const [isModal, setModal] = useState(false)
+
   //redux
   const dispatch = useDispatch()
   const { auth_login } = bindActionCreators(AuthActions, dispatch)
@@ -24,8 +26,6 @@ function Login(){
       if(isTrue){
         router.push("/")
       }
-    }else{
-
     }
     e.target.reset()
   }
@@ -34,10 +34,20 @@ function Login(){
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleContinue = (e) => {
+    e.preventDefault()
+    if(!!form.email && !!form.password){
+      console.log('test: ', form)
+      setModal(true)
+    }
+  };
+
   return (
     <AuthUserUi
       router={router}
-      form={form}
+      isModal={isModal}
+      setModal={setModal}
+      handleContinue={handleContinue}
       handleSubmit={handleSubmit}
       formHandler={formHandler}
     />

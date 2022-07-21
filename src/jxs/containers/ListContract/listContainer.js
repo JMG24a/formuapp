@@ -5,4 +5,9 @@ export const Card = styled.div`
   width: 70%;
   min-height: 220px;
   border-radius: 15px;
+  /* Hover */
+  :hover{
+    cursor: pointer;
+    background-color: #cfcfcf;
+  }
 `

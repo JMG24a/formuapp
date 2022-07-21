@@ -19,20 +19,30 @@ export const getStaticProps = async () => {
 
 function Result({PDFs}){
   const refPDF = useRef();
-  const [isModal, setIsModal] = useState(false)
-  const { forms, stateInfo,  } = useSelector((state) => state);
-  console.log(PDFs)
+  const [documentID, setDocumentID] = useState();
+  const [isModal, setIsModal] = useState(false);
+  const { forms, stateInfo } = useSelector((state) => state);
+
+  console.log('FF: ',forms)
+
   const handlePrint = useReactToPrint({
     content: () => refPDF.current,
   });
+
+  const handleClick = (id) => {
+    setDocumentID(id)
+    setIsModal(true)
+  }
 
   return (
     <ResultUi
       slugs={PDFs}
       refPDF={refPDF}
       isModal={isModal}
-      stateInfo={stateInfo}
+      documentID={documentID}
       forms={forms}
+      handleClick={handleClick}
+      setId={setDocumentID}
       setIsModal={setIsModal}
       handlePrint={handlePrint}
     />

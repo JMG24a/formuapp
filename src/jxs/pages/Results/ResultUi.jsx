@@ -9,19 +9,19 @@ import { DocumentPDF } from '../../containers/DocumentPDF/DocumentPDF';
 //style
 import { Container, Title, ModalContainer, ContainerPDF } from './result.js';
 
-function ResultUi({slugs, setIsModal, isModal, forms, handlePrint, refPDF, stateInfo}){
+function ResultUi({slugs, setIsModal, isModal, forms, handlePrint, refPDF, documentID, handleClick}){
 
   useEffect(()=>{
-    console.log('status: ',stateInfo)
-  },[stateInfo.id])
+    console.log('status: ',documentID)
+  },[documentID])
 
   return (
     <>
       <MainPage>
         <Container>
           <Title>{forms.title}</Title>
-          <ProgressBar nodes={forms.formNodes}/>
-          <Download setIsModal={setIsModal} slugs={slugs}/>
+          <ProgressBar nodes={forms.formNodes} />
+          <Download forms={forms} slugs={slugs} handleClick={handleClick}/>
         </Container>
       </MainPage>
 
@@ -41,7 +41,7 @@ function ResultUi({slugs, setIsModal, isModal, forms, handlePrint, refPDF, state
                     padding: '20px 5%',
                   }}
                 >
-                  <DocumentPDF id={stateInfo.id}/>
+                  <DocumentPDF id={documentID}/>
                 </div>
               </ContainerPDF>
             </ModalContainer>

@@ -5,6 +5,7 @@ const FORM_STATE_APP = {
   title: '',
   loading: false,
   error: '',
+  relations: [],
   formNodes: []
 }
 
@@ -15,6 +16,7 @@ export const FormReducer = (state = FORM_STATE_APP, action) =>{
         ...state,
         id: action.payload.id,
         title: action.payload.title,
+        relations: action.payload.relations,
         loading: false
       }
     }

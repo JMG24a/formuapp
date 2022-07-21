@@ -41,11 +41,12 @@ export const ContainerOptions = styled.div`
   padding: 5px 10px;
   :hover{
     background-color: ${paletteColor.mainColor};
+    cursor: pointer;
   }
 `
 
 export const Options = styled.p`
-  border-bottom: 1px solid ${paletteColor.textSecondary};
+  border-bottom: 1px solid gray;
   /* Hover */
 
 `

@@ -43,6 +43,10 @@ export default function Home({PDFs}) {
     }
   }
 
+  const preSelectContract = async (form) => {
+    get_forms(form)
+  }
+
   const handleClick = () => {
     if(forms.formNodes.length > 0 && !!auth.name){
       router.push('/form')
@@ -63,6 +67,7 @@ export default function Home({PDFs}) {
 
   return (
     <HomeUi
+      preSelectContract={preSelectContract}
       selectionContract={selectContract}
       handleClick={handleClick}
       slugs={PDFs}

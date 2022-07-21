@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { MdNotifications } from 'react-icons/md'
 //components
 import { Logo } from "../../components/Logo/Logo.jsx";
 //containers
@@ -14,7 +15,7 @@ function Nav({auth}){
 
   return(
     <Container>
-      <Logo/>
+      <Logo option={router.pathname !== '/profile' ? true : false}/>
 
       <ContainerAuth>
         {!auth && router.pathname === '/' &&
@@ -44,12 +45,24 @@ function Nav({auth}){
               }}
             />
             <NameAvatar>{auth}</NameAvatar>
+            <div>
+              <p style={{
+                position: 'absolute',
+                right: '12px',
+                display: 'flex',
+                justifyContent: 'center',
+                padding: '2px',
+                background: 'red',
+                color: 'white',
+                borderRadius: '100%'}}>1</p>
+              <MdNotifications size={'30px'} color={'white'}/>
+            </div>
           </Avatar>
         }
       </ContainerAuth>
 
       {!!isAuthMenu &&
-          <MenuUser/>
+          <MenuUser setIsAuthMenu={setIsAuthMenu}/>
       }
     </Container>
   )
