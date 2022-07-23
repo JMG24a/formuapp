@@ -6,9 +6,9 @@ import {
   ExitIcon,
 } from "./menuUserResponsive.js";
 import { AiFillStar } from "react-icons/ai";
-import { FaWpforms, FaUserAlt, FaPowerOff } from "react-icons/Fa";
-import { BsArrowBarRight } from "react-icons/Bs";
-import { GiHouse } from "react-icons/Gi";
+import { FaWpforms, FaUserAlt, FaPowerOff } from "react-icons/fa";
+import { BsArrowBarRight } from "react-icons/bs";
+import { GiHouse } from "react-icons/gi";
 
 const MenuUserResponsive = ({ setIsAuthMenu }) => {
   return (

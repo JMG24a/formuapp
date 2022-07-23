@@ -56,6 +56,7 @@ export const BottomNav = styled.p`
   text-align: center;
   justify-content: center;
 `;
+
 export const PosicionFlecha = styled.div`
   height: 100%;
   background-color: #001e38;

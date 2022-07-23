@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 //components
-import { Logo } from "../../components/Logo/Logo";
+import { Logo } from "../../components/Logo/Logo.jsx";
 //styled
 import {
   Container,
@@ -19,8 +19,8 @@ import {
   AiFillInstagram,
   AiFillStar,
 } from "react-icons/ai";
-import { FaWpforms, FaUserAlt } from "react-icons/Fa";
-import { BsArrowBarLeft } from "react-icons/Bs";
+import { FaWpforms, FaUserAlt } from "react-icons/fa";
+import { BsArrowBarLeft } from "react-icons/bs";
 
 function MenuUser({ setIsAuthMenu }) {
   // const router = useRouter();
